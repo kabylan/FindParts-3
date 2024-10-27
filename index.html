@@ -11,7 +11,7 @@
 
     gtag('config', 'AW-16741477833');
   </script>
-  
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.84.0">
@@ -38,7 +38,20 @@
         }
       }
     </style>
-
+    <style>
+      #consent-banner {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-color: #333;
+          color: white;
+          padding: 15px;
+          text-align: center;
+          display: none;
+          z-index: 1000;
+      }
+  </style>
     
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
@@ -55,7 +68,7 @@
       Looking for car parts? Simply send your request via WhatsApp, and we'll find the parts you need quickly!
     </p>
     <p class="lead">
-      <a href="https://wa.me/996550202550" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Contact Us on WhatsApp</a>
+      <a href="https://wa.me/996550202550" class="btn btn-lg btn-success fw-bold rounded mb-1">Contact Us on WhatsApp</a>
     </p>
   </main>
 
@@ -65,6 +78,24 @@
 </div>
 
 
+<div id="consent-banner">
+  We use cookies to improve functionality and analytics
+  <button class="btn btn-sm btn-secondary border-white bg-white" id="accept-btn">Accept</button>
+</div>
+
+<script>
+  // Проверяем, если пользователь уже дал согласие
+  if (!localStorage.getItem('cookieConsent3')) {
+      document.getElementById('consent-banner').style.display = 'block';
+  }
+
+  // Обработчик события для кнопки "Принять"
+  document.getElementById('accept-btn').onclick = function() {
+      localStorage.setItem('cookieConsent3', 'accepted');
+      document.getElementById('consent-banner').style.display = 'none';
+  };
+
+</script>
     
   </body>
 </html>

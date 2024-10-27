@@ -38,7 +38,20 @@
         }
       }
     </style>
-
+    <style>
+      #consent-banner {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-color: #333;
+          color: white;
+          padding: 15px;
+          text-align: center;
+          display: none;
+          z-index: 1000;
+      }
+  </style>
     
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
@@ -55,7 +68,7 @@
       ¿Buscas piezas de auto? Simplemente envía tu solicitud a través de WhatsApp y encontraremos las piezas que necesitas rápidamente.
     </p>
     <p class="lead">
-      <a href="https://wa.me/996550202550" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Contáctanos por WhatsApp</a>
+      <a href="https://wa.me/996550202550" class="btn btn-lg btn-success fw-bold rounded mb-1">Contáctanos por WhatsApp</a>
     </p>
   </main>
 
@@ -65,6 +78,24 @@
 </div>
 
 
+<div id="consent-banner">
+  Usamos cookies para mejorar el funcionamiento y la analítica.
+  <button class="btn btn-sm btn-secondary border-white bg-white" id="accept-btn">Aceptar</button>
+</div>
+
+<script>
+  // Проверяем, если пользователь уже дал согласие
+  if (!localStorage.getItem('cookieConsent4')) {
+      document.getElementById('consent-banner').style.display = 'block';
+  }
+
+  // Обработчик события для кнопки "Принять"
+  document.getElementById('accept-btn').onclick = function() {
+      localStorage.setItem('cookieConsent4', 'accepted');
+      document.getElementById('consent-banner').style.display = 'none';
+  };
+
+</script>
     
   </body>
 </html>
